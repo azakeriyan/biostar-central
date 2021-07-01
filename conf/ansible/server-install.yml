@@ -141,6 +141,7 @@
              conda activate {{conda_env}}  &&
              conda config --add channels conda-forge &&
              conda install -y --file conf/conda-packages.txt &&
+             pip uninstall Django &&
              pip install -r conf/requirements-to-freeze.txt"
       args:
         executable: /bin/bash

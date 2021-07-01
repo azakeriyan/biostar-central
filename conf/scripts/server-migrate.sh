@@ -18,7 +18,7 @@ export DJANGO_SETTINGS_MODULE=conf.run.site_settings
 
 export POSTGRES_HOST=/var/run/postgresql
 
-python manage.py schemamigration allauth.account --initial
+#python manage.py schemamigration allauth.account --initial
 
 # Migrate the server.
 python manage.py migrate
