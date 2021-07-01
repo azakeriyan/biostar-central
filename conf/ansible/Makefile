@@ -19,17 +19,17 @@ setup:
 	ansible-playbook -i hosts.ini -l ${TARGET} server-setup.yml --extra-vars "repo=${REPO} username=${USER} branch=${BRANCH}"
 
 install:
-	ansible-playbook -i hosts.ini -l ${TARGET} server-install.yml  --extra-vars "repo=${REPO} username=${USER} branch=${BRANCH}"
+	ansible-playbook -i hosts.ini -l ${TARGET} server-install.yml  --extra-vars "repo=${REPO} username=${USER} branch=${BRANCH}" -vvv
 
 restart:
-	ansible-playbook -i hosts.ini -l ${TARGET} server-restart.yml --extra-vars "repo=${REPO} username=${USER} branch=${BRANCH}"
+	ansible-playbook -i hosts.ini -l ${TARGET} server-restart.yml --extra-vars "repo=${REPO} username=${USER} branch=${BRANCH}" -vvv
 
 transfer:
 	echo LOCAL_OLD=${LOCAL_OLD_DB}
-	ansible-playbook -i hosts.ini -l ${TARGET} server-transfer.yml --extra-vars "local_old=${LOCAL_OLD_DB} repo=${REPO} username=${USER} branch=${BRANCH}"  -vv
+	ansible-playbook -i hosts.ini -l ${TARGET} server-transfer.yml --extra-vars "local_old=${LOCAL_OLD_DB} repo=${REPO} username=${USER} branch=${BRANCH}"  -vvv
 
 deploy-code:
-	ansible-playbook -i hosts.ini -l ${TARGET} server-deploy.yml  --extra-vars "repo=${REPO} username=${USER} branch=${BRANCH}"
+	ansible-playbook -i hosts.ini -l ${TARGET} server-deploy.yml  --extra-vars "repo=${REPO} username=${USER} branch=${BRANCH}" -vvv
 
 deploy: deploy-code restart
 
